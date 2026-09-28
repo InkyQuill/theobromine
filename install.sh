@@ -3,14 +3,14 @@ set -euo pipefail
 
 PLASMOID_ID="net.inkyquill.theobromine"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-INSTALL_DIR="$HOME/.local/share/plasma/plasmoids/$PLASMOID_ID"
 
-echo "Installing Theobromine to: $INSTALL_DIR"
-
-rm -rf "$INSTALL_DIR"
-mkdir -p "$INSTALL_DIR"
-cp -r "$SCRIPT_DIR/." "$INSTALL_DIR/"
-chmod +x "$INSTALL_DIR/contents/scripts/inhibit.py"
+if kpackagetool6 --list --type=Plasma/Applet 2>/dev/null | grep -q "^${PLASMOID_ID}$"; then
+    echo "Upgrading Theobromine..."
+    kpackagetool6 --upgrade "$SCRIPT_DIR" --type Plasma/Applet
+else
+    echo "Installing Theobromine..."
+    kpackagetool6 --install "$SCRIPT_DIR" --type Plasma/Applet
+fi
 
 echo ""
 echo "Done.  Restart plasmashell to load the widget:"

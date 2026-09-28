@@ -8,11 +8,11 @@ Named after the stimulant found in chocolate 🍫
 
 ## Features
 
-- **One-click toggle** — click the panel icon to open the popup, then activate with a timer or indefinitely
-- **Countdown timers** — presets for 5 min, 15 min, 30 min, 1 h, 2 h, or no limit
+- **Fast timer starts** — click the panel icon, then choose a common duration or no limit
+- **Arbitrary timers** — set any duration up to 99 h 59 min with editable hour/minute controls
 - **Auto-deactivate** — when the timer expires caffeine mode turns off automatically
 - **Compact countdown display** — remaining time shown next to the icon in the panel while a timer runs
-- **Light & dark theme aware** — cup icon adapts; the chocolate drip colour stays brown on both themes
+- **Light & dark theme aware** — simple symbolic cup icon adapts to the active Plasma theme
 - **Wayland + X11** — uses DBus inhibition APIs natively; falls back to `xset` + `systemd-inhibit` on X11-only setups
 
 ---
